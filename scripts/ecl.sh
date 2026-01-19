@@ -26,7 +26,7 @@ do
     esac
   python -u run.py \
     --is_training 1 \
-    --root_path ../Amplifier-main/dataset/electricity/ \
+    --root_path .dataset/electricity/ \
     --data_path electricity.csv \
     --model_id electricity_$pred_len'_'$ma_type \
     --model $model_name \
