@@ -71,7 +71,7 @@ class Model(nn.Module):
         padding_patch = configs.padding_patch
         alpha = configs.alpha
         self.ma_type = configs.ma_type
-        self.use_mix = configs.use_mix
+        self.MSPM = configs.use_mix
         self.hidden_size = configs.hidden_size
         self.heads = configs.heads
         # 归一化
@@ -103,7 +103,7 @@ class Model(nn.Module):
             x = self.revin_layer(x, 'norm')
         B, T, C = x.shape[0], x.shape[1], x.shape[2]
 
-        if self.use_mix:
+        if self.MSPM:
             x_in = x.permute(0, 2, 1)         #[B, C, T]                       
             ms_list = []
             ms_list.append(x_in.permute(0, 2, 1))     #[B, T, C] 
